@@ -1,79 +1,147 @@
-/* tehnyt Nelli tommila */
-body {
-	background: #ffcccc;
-	text-align: center;
-	font-family: 'Open Sans', sans-serif;
+:root{
+  --text-color: #3f3f3f;
+  --heading-color: #08605F;
+  --outline-color: #598381;
+  --button-color: #177E89;
+  --list-item-color: lavender;
+  --done: green;
 }
-.container{
-	margin: 0 auto;
-	width: 800px;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'poppins', 'sans-serif';
+  color: var(--text-color);
+   font-size: 1em;
+  line-height: 1.4;
 }
 
 h1 {
-	color: #ffffff;
+	color: var(--heading-color);
 	text-transform: uppercase;
-	font-weight: 800;
+	font-weight: 500;
+  font-family: 'Lilita One', cursive;
 }
 
 p {
-	font-weight: 600;
-}
-
-#painike {
-	border: none;
-	padding: 5px 15px;
-	border-radius: 20px;
-	color: #ffe6e6;
-	background-color: #ff6666;
-	transition: all 0.75s ease;
 	font-weight: normal;
+  font-size: 0.8em;
+  display: block;
+  padding: 0.2em;
+  margin: 0.4em;
 }
 
-#painike:hover{
-	background-color: #d580ff;
-	color: #000000;
+.fa-solid{
+  font-size: 1em;
+  color: var(--outline-color);
 }
 
-ul {
+.container {
+  width: 100%;
+  height: 100vh;
+	text-align: center;
+}
+
+.info{
+  display: block;
+  overflow: hidden;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.input-section{
+  @extend .info;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+#input {
+	border: 0.1em solid var(--outline-color);
+  border-radius: 20px;
+	min-width: 65%;
+  height: 3em;
+	padding: 2em;
+  margin-right: 0.3em;
+  font-size: 0.8em;
+}
+
+#input:focus{
+  outline: none;
+  box-shadow: 0 0 0.1em var(--outline-color);
+}
+
+#btn {
+	display: inline-block;
+  border: none;
+	border-radius: 20px;
+	color: white;
+  padding: 0 2em;
+  height: 4em;
+  min-width: 15%;
+  font-size: 0.8em;
+	background-color: var(--button-color);
+}
+
+
+.task-list{
+  @extend .info;
+  display: flex;
+  flex-direction: col;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+#to-do {
 	text-align: left;
-	margin-top: 20px;
-	padding-left: 20px;
+	list-style: none;
+  width: 75%;
 }
 
 li {
-	height: 20px;
-	width: 700px;
-	list-style: none;
-	padding: 10px 20px;
-	color: #ffffff;
+	height: auto;
+	padding: 0.8em;
+  margin-bottom: 0.8em;
+	color: var(--text-color);
 	text-transform: capitalize;
-	font-weight: 600;
-	border: 2px solid #000000;
-	border-radius: 5px;
-	margin-bottom: 10px;
-	background: #e6ccff;
+	font-weight: 400;
+	border-bottom: 0.1em solid var(--outline-color);
+	/*border-radius: 20px;*/
+	/*background-color: var(--list-item-color);*/
 }
 
 li:hover {
-	background: #bf80ff;
+  cursor: pointer;
 }
 
 li > button {
-	font-weight: normal;
-	background: none;
 	border: none;
+  font-size: 1em;
+  background: none;
 	float: right;
-	color: #000000;
-	font-weight: 800;
+	color: var(--text-color);
 }
 
-input {
-	border-radius: 5px;
-	min-width: 65%;
-	padding: 5px;
-	border: none;
-	width: 400px;
-}
 .delete {
 	display: none;
+}
+.done{
+  text-decoration: line-through;
+  color: #d3d3d3;
+  border-bottom: none;
 }

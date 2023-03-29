@@ -1,23 +1,17 @@
-<!--Tehnyt Jenna Koskelo -->
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="tehtävälista.css">
-    <title>Tehtävälista</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Tehtävälista</h1>
-      <p>Lisää uusi tehtävä kirjoittamalla se tekstikenttään.</p>
-      <p>Kun tehtävä on tehty, napauta sitä ja tehtävä muuttuu vihreäksi.</p>
-      <p>Poistaaksesi tehtävän listalta, paina X -painiketta.</p>
-      <input type="text" id="syotto" placeholder="Uusi tehtävä...">
-      <button type="button" id="painike">Lisää tehtävä</button>
-      <ul>
-      </ul>
+<div class="container">
+  <div class="info">
+    <h1>To Do List</h1>
+    <p><i class="fa-solid fa-pen"></i> Add a new task by writing in te text field</p>
+    <p><i class="fa-solid fa-check"></i> Click the task once it's done to cross it out.</p>
+    <p><i class="fa-solid fa-trash"></i> Remove a task by clicking the trash icon.</p>
+  </div>
+  <div class="input-section">
+    <input type="text" id="input" placeholder="Write new task...">
+    <button type="button" id="btn">Add task</button>
+  </div>
+  <div class="task-list">
+    <ul id="to-do">
+    </ul>
+  </div>
 
-    </div>
-    <script src="tehtävälista.js" charset="utf-8"></script>
-  </body>
-</html>
+</div>

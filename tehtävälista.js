@@ -1,55 +1,43 @@
-//tehnyt Kalle Hahtela
-var enterButton = document.getElementById("painike");
-enterButton.addEventListener("click",lisaaListaanNapauttaessa);
+const enterButton = document.getElementById("btn");
+enterButton.addEventListener("click",function() {
+  if (inputLength() > 0) {
+      createTask();
+  }
+  });
 
-var input = document.getElementById("syotto");
-input.addEventListener("keypress", lisaaListaanEnterilla);
+const input = document.getElementById("input");
+input.addEventListener("keypress", function() {
+  if (inputLength() > 0 && event.which ===13) {
+      createTask();
+}
+});
 
-var ul = document.querySelector("ul");
-function inputLength()
-{
+const ul = document.getElementById("to-do");
+function inputLength() {
   return input.value.length;
 }
 
-function luoListaElementti()
+function createTask()
 {
-  var li = document.createElement("li");
+  let li = document.createElement("li");
 
-if(input.value != '')
-{
-  li.appendChild(document.createTextNode(input.value));
+if(input.value != '') { li.appendChild(document.createTextNode(input.value));
     ul.appendChild(li);
     input.value = "";
 }
 
-function crossOut() {
-      li.classList.toggle("done");
-  }
 
-  li.addEventListener("click",crossOut);
+ li.addEventListener("click", function() {
+   li.classList.toggle("done");
+ });
 
-  var poisto = document.createElement("button");
-  poisto.appendChild(document.createTextNode("X"));
-  li.appendChild(poisto);
-  poisto.addEventListener("click", poistaTehtava);
-
-function poistaTehtava()
-{
-      li.classList.add("delete")
-  }
-}
-
-
-function lisaaListaanNapauttaessa()
-{
-  if (inputLength() > 0) {
-      luoListaElementti();
-  }
-}
-
-function lisaaListaanEnterilla(event)
-{
-  if (inputLength() > 0 && event.which ===13) {
-      luoListaElementti();
-  }
+  let delBtn = document.createElement("button");
+  let trash = document.createElement("i");
+  
+  trash.classList.add("fa-solid", "fa-trash");
+  delBtn.appendChild(trash);
+  li.appendChild(delBtn);
+  delBtn.addEventListener("click", function() {
+    li.classList.add("delete")
+  });
 }
